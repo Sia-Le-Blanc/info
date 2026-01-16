@@ -3,139 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>임승우 | Sia Le Blanc Portfolio</title>
+    <title>시스템 아키텍처 분석 | Sia Le Blanc</title>
     
     <link rel="stylesheet" href="style.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Noto+Sans+KR:wght@300;500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     
     <style>
-        /* 아키텍처 이동 버튼: 시각적 주목도를 극대화한 네온 그라데이션 */
-        .btn-arch {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 15px 30px;
-            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
-            color: #ffffff;
+        /* 아키텍처 페이지 전용 스타일 */
+        .arch-container {
+            padding-top: 120px;
+            padding-bottom: 80px;
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
             text-decoration: none;
-            border-radius: 12px;
-            font-weight: 800;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 25px rgba(0, 114, 255, 0.3);
-            border: none;
+            font-weight: 700;
         }
 
-        .btn-arch:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(0, 198, 255, 0.5);
-            filter: brightness(1.2);
-        }
-
-        .btn-arch span {
-            margin-left: 10px;
-            display: inline-block;
-            transition: transform 0.3s ease;
-        }
-
-        .btn-arch:hover span {
-            transform: translateX(8px);
-        }
-
-        /* 관심사 섹션 스타일 */
-        .interest-grid {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin-top: 40px;
-            text-align: center;
-        }
-
-        .interest-item {
-            flex: 1;
-            max-width: 200px;
-            padding: 30px 20px;
-            background: var(--card-bg);
+        /* 이미지 컨테이너 (그림자 및 테두리 효과) */
+        .diagram-wrapper {
+            width: 100%;
+            background: #0d1117;
+            padding: 20px;
             border-radius: 20px;
             border: 1px solid #30363d;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .diagram-wrapper img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .diagram-caption {
+            margin-top: 15px;
+            color: #8b949e;
+            font-size: 0.9rem;
+        }
+
+        /* 기술 카드 그리드 */
+        .tech-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .tech-detail-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent-color);
             transition: transform 0.3s ease;
         }
 
-        .interest-item:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-color);
+        .tech-detail-card:hover {
+            transform: translateY(-5px);
         }
 
-        .interest-emoji {
-            font-size: 3rem;
-            display: block;
-            margin-bottom: 15px;
-        }
-
-        .interest-item h3 {
+        .tech-detail-card h4 {
+            color: var(--accent-color);
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            color: var(--text-color);
-        }
-
-        /* 성과 배지 스타일 */
-        .award-badge {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(255, 215, 0, 0.15);
-            color: #ffd700;
-            padding: 7px 15px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            border: 1px solid rgba(255, 215, 0, 0.4);
-            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.15);
-        }
-
-        .tag {
-            display: block;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--highlight-color);
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        /* 프로젝트 성과 리스트 가독성 강화 */
-        .achievements {
-            margin-top: 25px;
-            padding-left: 0;
-            list-style: none;
-        }
-
-        .achievements li {
-            position: relative;
-            padding-left: 25px;
             margin-bottom: 15px;
-            font-size: 1.05rem;
+            font-size: 1.2rem;
+        }
+
+        .tech-detail-card p {
+            font-size: 0.95rem;
             color: #d1d9e1;
-            font-weight: 400;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        .achievements li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: #58a6ff;
-            font-weight: bold;
-        }
-
-        .achievements li strong {
-            color: #7ee787;
-            font-weight: 600;
-        }
-
-        section {
-            padding: 100px 0;
+        /* 반응형 대응 */
+        @media (max-width: 768px) {
+            .arch-container { padding-top: 100px; }
+            .section-title { font-size: 2rem; }
+            .tech-detail-card { padding: 20px; }
         }
     </style>
 </head>
@@ -146,234 +100,78 @@
         <nav>
             <div class="logo">SIA</div>
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#interests">Interests</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
             </ul>
         </nav>
     </header>
 
-
-    <section id="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            
-            <h1>End-to-End <br><span class="highlight">AI Developer</span></h1>
-            
-            <p class="intro-text">"기술의 유행보다 사용자에게 실질적인 가치를 제공합니다."</p>
-            
-            <div class="hero-btns">
-                <a href="#projects" class="btn primary">View Projects</a>
-                <a href="mailto:ryan041672@gmail.com" class="btn secondary">Get in Touch</a>
-            </div>
-            
+    <main class="container arch-container">
+        
+        <div class="breadcrumb">
+            <a href="index.html">Projects</a> / 실시간 화면 검열 시스템
         </div>
-    </section>
 
+        <h2 class="section-title">SYSTEM<br><span class="highlight">ARCHITECTURE</span></h2>
+        
+        <p class="intro-text" style="text-align: left; max-width: 800px;">
+            본 문서는 실시간 화면 검열 시스템의 데이터 흐름과 모듈별 구성을 기술합니다. 
+            Python 기반 프로토타입의 성능 한계를 극복하기 위해 <strong>C# .NET 환경으로 리팩토링</strong>되었으며, 
+            GPU 가속을 통한 실시간 추론 최적화에 중점을 두었습니다.
+        </p>
 
-    <section id="about">
-        <div class="container">
-            <div class="profile-layout">
-                
-                <div class="profile-column about-info">
-                    
-                    <h2 class="section-title">ABOUT ME</h2>
-                    
-                    <div class="info-content">
-                        
-                        <p><strong>NAME</strong> <span>임승우 (Sia Le Blanc)</span></p>
-                        <p><strong>STATUS</strong> <span>대구대학교 AI전공 / SSAFY 15기</span></p>
-                        <p><strong>MISSION</strong> <span>모든 세대가 평등하게 누리는 직관적인 AI 서비스 구현</span></p>
-                        
-                        <div class="bio">
-                            <p>
-                                3세대가 함께 거주하는 환경에서 성장하며 기술 격차를 몸소 체험했습니다. 
-                                단순히 모델을 만드는 것을 넘어, 할머니도 쉽게 사용할 수 있는 
-                                '사용자 중심'의 제품을 만드는 것이 저의 개발 철학입니다.
-                            </p>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-
-                <div class="profile-column social-info">
-                    
-                    <h2 class="section-title alt-font">BAND & SOCIAL</h2>
-                    
-                    <div class="social-list">
-                        
-                        <a href="https://www.instagram.com/just_band_5/" target="_blank" class="social-item">
-                            <span class="category">BAND</span>
-                            <span class="name">저스트밴드 (Just Band)</span>
-                        </a>
-                        
-                        <a href="https://www.instagram.com/bandfragile/" target="_blank" class="social-item">
-                            <span class="category">BAND</span>
-                            <span class="name">취급주의 (Fragile)</span>
-                        </a>
-                        
-                        <a href="https://github.com/Sia-Le-Blanc" target="_blank" class="social-item">
-                            <span class="category">CODE</span>
-                            <span class="name">GitHub Repository</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-
-            </div>
+        <div class="diagram-wrapper">
+            <img src="img.png" alt="실시간 화면 검열 시스템 아키텍처 다이어그램">
+            <p class="diagram-caption">▲ 시스템 파이프라인 흐름도 (Capture → Process → Inference → Overlay)</p>
         </div>
-    </section>
 
-
-    <section id="interests">
-        <div class="container">
+        <div class="tech-detail-grid">
             
-            <h2 class="section-title center">MY INTERESTS</h2>
-            
-            <div class="interest-grid">
-                
-                <div class="interest-item">
-                    <span class="interest-emoji">💻</span>
-                    <h3>개발</h3>
-                </div>
-                
-                <div class="interest-item">
-                    <span class="interest-emoji">🎵</span>
-                    <h3>음악</h3>
-                </div>
-                
-                <div class="interest-item">
-                    <span class="interest-emoji">🎸</span>
-                    <h3>공연</h3>
-                </div>
-                
+            <div class="tech-detail-card">
+                <h4>01. High-Speed Capture</h4>
+                <p>
+                    <strong>Win32 API (GDI+, BitBlt)</strong>를 직접 호출하여 Windows OS의 화면 데이터를 최소 지연 시간으로 획득합니다. 
+                    멀티 모니터 환경을 지원하며, 초당 60프레임 이상의 캡처 성능을 유지합니다.
+                </p>
             </div>
-            
-        </div>
-    </section>
 
-
-    <section id="projects">
-        <div class="container">
-            
-            <h2 class="section-title center">CORE PROJECTS</h2>
-            
-            <div class="project-grid">
-                
-                <div class="project-card featured">
-                    
-                    <div class="project-header">
-                        <span class="award-badge">💰 누적 수익 $1,650 달성</span>
-                        <span class="tag">Flagship / Monetized</span>
-                        <h3>실시간 화면 검열 AI</h3>
-                    </div>
-                    
-                    <p>
-                        Windows OS 전체 화면의 민감 부위를 실시간 탐지 및 검열합니다. 
-                        Python의 성능 한계를 C#과 ONNX Runtime으로 해결하여 상용화 수준의 FPS를 확보했습니다.
-                    </p>
-                    
-                    <ul class="achievements">
-                        <li><strong>수익화 성공:</strong> 누적 수익 $1,650 기록 및 지속적인 업데이트 중</li>
-                        <li><strong>최적화:</strong> YOLO 기반 객체 탐지 및 Win32 API 고속 캡처 통합</li>
-                    </ul>
-                    
-                    <div class="card-action">
-                        <a href="architecture.html" class="btn-arch">시스템 아키텍처 상세 분석 <span>→</span></a>
-                    </div>
-                    
-                </div>
-
-
-                <div class="project-card">
-                    
-                    <div class="project-header">
-                        <span class="award-badge">🏆 캡스톤디자인 경진대회 우수상</span>
-                        <span class="tag">NLP / Deep Learning</span>
-                        <h3>감정 소통형 AI 챗봇</h3>
-                    </div>
-                    
-                    <p>
-                        음성 발화의 반언어적 특징을 통해 사용자의 감정을 분류하고, 
-                        맥락에 맞는 감성적 대화를 생성하는 지능형 서비스입니다.
-                    </p>
-                    
-                    <ul class="achievements">
-                        <li><strong>모델링:</strong> 음성 기반 감정 분류 모델 및 LLM 응답 파이프라인 구축</li>
-                        <li><strong>성과:</strong> 교내 캡스톤디자인 경진대회 우수상 수상</li>
-                    </ul>
-                    
-                </div>
-
-
-                <div class="project-card">
-                    
-                    <div class="project-header">
-                        <span class="award-badge">💯 iM뱅크 프로젝트 평가 만점</span>
-                        <span class="tag">Deep Learning / Awards</span>
-                        <h3>멀티모달 독거 노인 행동 예측</h3>
-                    </div>
-                    
-                    <p>
-                        열화상 이미지와 생체 데이터를 결합하여 위급 상황을 감지하는 AI 서비스입니다. 
-                        LSTM-LLama-LLaVA 기반의 고도화된 모델을 설계했습니다.
-                    </p>
-                    
-                    <ul class="achievements">
-                        <li><strong>성과:</strong> iM뱅크 프로젝트 평가 전 항목(100점) 만점 달성</li>
-                        <li><strong>기술 주도:</strong> 모델링 파이프라인 설계 및 학습 자원 최적화 지원</li>
-                    </ul>
-                    
-                </div>
-
-
-                <div class="project-card">
-                    
-                    <div class="project-header">
-                        <span class="award-badge">🥇 금융 데이터 분석 프로젝트 최종 1위</span>
-                        <span class="tag">Data Analysis / Finance</span>
-                        <h3>부동산 PF 리스크 분석 서비스</h3>
-                    </div>
-                    
-                    <p>
-                        기업 재무제표와 아파트 분양률 데이터를 결합한 리스크 분석 모델입니다. 
-                        SMOTE-ENN 기법을 통해 데이터 불균형 문제를 해결했습니다.
-                    </p>
-                    
-                    <ul class="achievements">
-                        <li><strong>성과:</strong> 데이터 전문가 양성과정 최종 프로젝트 1위 달성</li>
-                        <li><strong>데이터:</strong> 직접 수집한 정형 데이터 기반의 분양률 예측 모델 구축</li>
-                    </ul>
-                    
-                </div>
-
+            <div class="tech-detail-card">
+                <h4>02. ONNX Runtime Inference</h4>
+                <p>
+                    학습된 YOLO 모델을 <strong>ONNX Runtime</strong>으로 변환하여 실행합니다. 
+                    <strong>NVIDIA CUDA</strong> 및 <strong>DirectML</strong> 가속을 지원하여, 하드웨어 사양에 맞춰 최적화된 GPU 추론 환경을 자동으로 구성합니다.
+                </p>
             </div>
-            
+
+            <div class="tech-detail-card">
+                <h4>03. Intelligent Object Tracking</h4>
+                <p>
+                    단순 탐지를 넘어 <strong>SortTracker</strong> 기반의 객체 추적 알고리즘을 적용했습니다. 
+                    탐지된 객체에 고유 ID를 부여하여 프레임 간 끊김 없는 연속적인 검열 처리가 가능합니다.
+                </p>
+            </div>
+
+            <div class="tech-detail-card">
+                <h4>04. Transparent Overlay Rendering</h4>
+                <p>
+                    검열 결과(모자이크)를 사용자 화면 최상단에 투명 오버레이 레이어로 렌더링합니다. 
+                    시스템 리소스 점유율을 최소화하기 위해 비트맵 메모리 재사용 로직을 포함하고 있습니다.
+                </p>
+            </div>
+
         </div>
-    </section>
 
+        <div style="margin-top: 60px; text-align: center;">
+            <a href="index.html#projects" class="btn secondary">프로젝트 목록으로 돌아가기</a>
+        </div>
 
-    <footer id="contact">
+    </main>
+
+    <footer>
         <div class="container text-center">
-            
-            <h2 class="section-title">GET IN TOUCH</h2>
-            
-            <p>문제를 끝까지 해결하는 개발 파트너를 찾으신다면 언제든 연락주세요.</p>
-            
-            <div class="footer-links">
-                <a href="mailto:ryan041672@gmail.com" class="contact-email">ryan041672@gmail.com</a>
-            </div>
-            
-            <p class="copyright">&copy; 2026 Lim Seung-woo (SIA). All rights reserved.</p>
-            
+            <p class="copyright">&copy; 2026 Lim Seung-woo. All rights reserved.</p>
         </div>
     </footer>
-
-
-    <script src="script.js"></script>
 
 </body>
 </html>

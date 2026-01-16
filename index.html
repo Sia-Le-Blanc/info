@@ -6,6 +6,7 @@
     <title>임승우 | Sia Le Blanc Portfolio</title>
     
     <link rel="stylesheet" href="style.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Noto+Sans+KR:wght@300;500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     
     <style>
@@ -30,11 +31,20 @@
         .btn-arch:hover {
             transform: translateY(-5px) scale(1.05);
             box-shadow: 0 15px 30px rgba(0, 198, 255, 0.5);
+            filter: brightness(1.2);
         }
 
-        .btn-arch span { margin-left: 10px; display: inline-block; transition: transform 0.3s ease; }
-        .btn-arch:hover span { transform: translateX(8px); }
+        .btn-arch span {
+            margin-left: 10px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
 
+        .btn-arch:hover span {
+            transform: translateX(8px);
+        }
+
+        /* 성과 배지 스타일 */
         .award-badge {
             display: inline-flex;
             align-items: center;
@@ -46,14 +56,47 @@
             font-weight: 700;
             margin-bottom: 8px;
             border: 1px solid rgba(255, 215, 0, 0.4);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.15);
         }
 
-        .tag { display: block; font-size: 0.75rem; font-weight: 700; color: var(--highlight-color); text-transform: uppercase; margin-bottom: 12px; }
+        .tag {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--highlight-color);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
 
-        .achievements { margin-top: 25px; padding-left: 0; list-style: none; }
-        .achievements li { position: relative; padding-left: 25px; margin-bottom: 15px; font-size: 1.05rem; color: #d1d9e1; line-height: 1.6; }
-        .achievements li::before { content: '▹'; position: absolute; left: 0; color: #58a6ff; font-weight: bold; }
-        .achievements li strong { color: #7ee787; font-weight: 600; }
+        /* 프로젝트 성과 리스트 가독성 */
+        .achievements {
+            margin-top: 25px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .achievements li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            color: #d1d9e1;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .achievements li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #58a6ff;
+            font-weight: bold;
+        }
+
+        .achievements li strong {
+            color: #7ee787;
+            font-weight: 600;
+        }
     </style>
 </head>
 
@@ -71,6 +114,7 @@
         </nav>
     </header>
 
+
     <section id="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -83,9 +127,11 @@
         </div>
     </section>
 
+
     <section id="about">
         <div class="container">
             <div class="profile-layout">
+                
                 <div class="profile-column about-info">
                     <h2 class="section-title">ABOUT ME</h2>
                     <div class="info-content">
@@ -93,7 +139,11 @@
                         <p><strong>STATUS</strong> <span>대구대학교 AI전공 / SSAFY 15기</span></p>
                         <p><strong>MISSION</strong> <span>모든 세대가 평등하게 누리는 직관적인 AI 서비스 구현</span></p>
                         <div class="bio">
-                            <p>3세대가 함께 거주하는 환경에서 성장하며 기술 격차를 몸소 체험했습니다. 할머니도 쉽게 사용할 수 있는 사용자 중심 제품을 만드는 것이 저의 철학입니다.</p>
+                            <p>
+                                3세대가 함께 거주하는 환경에서 성장하며 기술 격차를 몸소 체험했습니다. 
+                                단순히 모델을 만드는 것을 넘어, 할머니도 쉽게 사용할 수 있는 
+                                '사용자 중심'의 제품을 만드는 것이 저의 개발 철학입니다.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -102,19 +152,21 @@
                     <h2 class="section-title alt-font">BAND & SOCIAL</h2>
                     <div class="social-list">
                         <a href="https://www.instagram.com/just_band_5/" target="_blank" class="social-item">
-                            <span class="category">BAND</span> <span class="name">저스트밴드</span>
+                            <span class="category">BAND</span> <span class="name">저스트밴드 (Just Band)</span>
                         </a>
                         <a href="https://www.instagram.com/bandfragile/" target="_blank" class="social-item">
-                            <span class="category">BAND</span> <span class="name">취급주의</span>
+                            <span class="category">BAND</span> <span class="name">취급주의 (Fragile)</span>
                         </a>
                         <a href="https://github.com/Sia-Le-Blanc" target="_blank" class="social-item">
-                            <span class="category">CODE</span> <span class="name">GitHub</span>
+                            <span class="category">CODE</span> <span class="name">GitHub Repository</span>
                         </a>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
+
 
     <section id="interests">
         <div class="container">
@@ -127,37 +179,77 @@
         </div>
     </section>
 
+
     <section id="projects">
         <div class="container">
             <h2 class="section-title center">CORE PROJECTS</h2>
+            
             <div class="project-grid">
+                
                 <div class="project-card featured">
                     <div class="project-header">
                         <span class="award-badge">💰 누적 수익 $1,650 달성</span>
                         <span class="tag">Flagship / Monetized</span>
                         <h3>실시간 화면 검열 AI</h3>
                     </div>
-                    <p>Windows OS 전체 화면의 민감 부위를 실시간 탐지 및 검열합니다. C#과 ONNX Runtime으로 최적화하여 고성능을 확보했습니다.</p>
+                    <p>Windows OS 전체 화면의 민감 부위를 실시간 탐지 및 검열합니다. Python의 성능 한계를 C#과 ONNX Runtime으로 해결했습니다.</p>
                     <ul class="achievements">
-                        <li><strong>수익화:</strong> 누적 $1,650 기록 및 성장 중</li>
-                        <li><strong>기술:</strong> YOLO 모델 및 Win32 API 통합</li>
+                        <li><strong>수익화 성공:</strong> 누적 수익 $1,650 기록 및 업데이트 중</li>
+                        <li><strong>최적화:</strong> YOLO 기반 객체 탐지 및 Win32 API 고속 캡처 통합</li>
                     </ul>
                     <div class="card-action">
                         <a href="./architecture.html" class="btn-arch">시스템 아키텍처 상세 분석 <span>→</span></a>
                     </div>
                 </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="award-badge">🏆 캡스톤디자인 경진대회 우수상</span>
+                        <span class="tag">NLP / Deep Learning</span>
+                        <h3>감정 소통형 AI 챗봇</h3>
+                    </div>
+                    <p>음성 발화의 특징을 통해 사용자의 감정을 분류하고, 맥락에 맞는 감성적 대화를 생성하는 서비스입니다.</p>
+                    <ul class="achievements">
+                        <li><strong>모델링:</strong> 음성 기반 감정 분류 모델 및 LLM 응답 파이프라인 구축</li>
+                    </ul>
                 </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="award-badge">💯 iM뱅크 프로젝트 평가 만점</span>
+                        <span class="tag">Deep Learning / Awards</span>
+                        <h3>멀티모달 독거 노인 행동 예측</h3>
+                    </div>
+                    <p>열화상 이미지와 생체 데이터를 결합하여 위급 상황을 감지하는 서비스입니다. LSTM-LLama-LLaVA 기반 모델을 설계했습니다.</p>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <span class="award-badge">🥇 금융 분석 프로젝트 최종 1위</span>
+                        <span class="tag">Data Analysis / Finance</span>
+                        <h3>부동산 PF 리스크 분석 서비스</h3>
+                    </div>
+                    <p>기업 재무제표와 분양률 데이터를 결합한 리스크 분석 모델입니다. SMOTE-ENN 기법으로 불균형 문제를 해결했습니다.</p>
+                </div>
+
+            </div>
         </div>
     </section>
+
 
     <footer id="contact">
         <div class="container text-center">
             <h2 class="section-title">GET IN TOUCH</h2>
             <p>언제든 연락주세요.</p>
-            <div class="footer-links"><a href="mailto:ryan041672@gmail.com" class="contact-email">ryan041672@gmail.com</a></div>
-            <p class="copyright">&copy; 2026 Lim Seung-woo. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="mailto:ryan041672@gmail.com" class="contact-email">ryan041672@gmail.com</a>
+            </div>
+            <p class="copyright">&copy; 2026 Lim Seung-woo (SIA). All rights reserved.</p>
         </div>
     </footer>
+
+
+    <script src="script.js"></script>
 
 </body>
 </html>
