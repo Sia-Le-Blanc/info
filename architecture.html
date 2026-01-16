@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실시간 화면 검열 아키텍처 | SIA</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Noto+Sans+KR:wght@300;500;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .arch-section { margin-bottom: 60px; }
+        .tech-box { background: var(--card-bg); padding: 30px; border-radius: 15px; border-left: 4px solid var(--accent-color); margin-top: 20px; }
+        .tech-box h4 { color: var(--accent-color); margin-bottom: 15px; font-family: 'Montserrat', sans-serif; }
+        
+        /* 이미지 영역 스타일 */
+        .architecture-image-container {
+            width: 100%;
+            background: #0d1117;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 40px 0;
+            border: 1px solid #30363d;
+            text-align: center;
+        }
+        .architecture-image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .img-caption {
+            color: #8b949e;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SIA</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#projects">Back to Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="container" style="padding-top: 150px;">
+        <h2 class="section-title alt-font">SYSTEM ARCHITECTURE</h2>
+        <h3 style="font-size: 2rem; margin-bottom: 20px;">실시간 화면 검열 시스템 상세 구조</h3>
+        <p style="color: #8b949e; max-width: 800px;">
+            본 시스템은 고속 화면 캡처, 딥러닝 추론 최적화, 그리고 유연한 오버레이 렌더링 기술이 집약된 엔드투엔드 솔루션입니다. 
+            아래 아키텍처는 데이터의 흐름과 각 모듈의 유기적인 결합을 나타냅니다.
+        </p>
+
+        <div class="architecture-image-container">
+            <img src="img.png" alt="실시간 화면 검열 시스템 아키텍처 다이어그램">
+            <p class="img-caption">▲ 실시간 화면 검열 시스템 파이프라인 (캡처 - 전처리 - 추론 - 렌더링)</p>
+        </div>
+
+        <div class="arch-section">
+            <div class="tech-box">
+                <h4>1. 고속 화면 캡처 모듈 (System Core)</h4>
+                <p>
+                    성능 지연을 최소화하기 위해 Win32 API인 <strong>GDI+ 및 BitBlt</strong>를 활용한 <code>ScreenCapturer</code> 모듈을 구축했습니다. 
+                    이를 통해 윈도우 전체 화면을 실시간으로 획득하며, 멀티 모니터 환경에서도 안정적인 캡처 성능을 유지합니다.
+                </p>
+            </div>
+
+            <div class="tech-box">
+                <h4>2. AI 추론 엔진 및 GPU 가속</h4>
+                <p>
+                    학습된 <strong>YOLOv8</strong> 모델을 <strong>ONNX Runtime</strong>으로 최적화하여 탑재했습니다. 
+                    <code>GpuDetector</code>를 통해 하드웨어 환경을 자동으로 분석하여 <strong>NVIDIA CUDA</strong> 또는 <strong>Windows DirectML</strong> 가속을 선택적으로 적용함으로써 범용성과 성능을 동시에 확보했습니다.
+                </p>
+            </div>
+
+            <div class="tech-box">
+                <h4>3. 객체 추적 및 오버레이 렌더링</h4>
+                <p>
+                    탐지된 객체의 연속성을 보장하기 위해 <code>SortTracker</code> 알고리즘을 적용하여 고유 ID 기반의 객체 관리를 수행합니다. 
+                    최종 검열 결과는 투명하게 설계된 <strong>FullscreenOverlay</strong>를 통해 사용자 화면 최상단에 렌더링되며, 시스템 오버헤드를 줄이기 위한 최적화된 드로잉 로직이 포함되어 있습니다.
+                </p>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="index.html#projects" class="btn primary">포트폴리오로 돌아가기</a>
+        </div>
+    </section>
+
+    <footer style="margin-top: 100px;">
+        <div class="container text-center">
+            <p>&copy; 2026 Lim Seung-woo (SIA). All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
