@@ -44,6 +44,61 @@
             transform: translateX(8px);
         }
 
+        /* 성과 배지 스타일: 각 프로젝트의 핵심 성과 강조 */
+        .award-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 215, 0, 0.15);
+            color: #ffd700;
+            padding: 7px 15px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 8px; /* 태그와의 간격 */
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.15);
+        }
+
+        /* 태그 스타일: 줄바꿈을 위해 display: block 설정 */
+        .tag {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--highlight-color);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        /* 프로젝트 성과 리스트 가독성 강화 */
+        .achievements {
+            margin-top: 25px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .achievements li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            color: #d1d9e1; /* 밝고 선명한 실버 블루 */
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .achievements li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #58a6ff;
+            font-weight: bold;
+        }
+
+        .achievements li strong {
+            color: #7ee787;
+            font-weight: 600;
+        }
+
         /* 관심사 섹션 스타일 */
         .interest-grid {
             display: flex;
@@ -80,62 +135,8 @@
             color: var(--text-color);
         }
 
-        /* 성과 배지 스타일 */
-        .award-badge {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(255, 215, 0, 0.15);
-            color: #ffd700;
-            padding: 7px 15px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            border: 1px solid rgba(255, 215, 0, 0.4);
-            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.15);
-        }
-
-        .tag {
-            display: block;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--highlight-color);
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        /* 프로젝트 성과 리스트 가독성 강화 */
-        .achievements {
-            margin-top: 25px;
-            padding-left: 0;
-            list-style: none;
-        }
-
-        .achievements li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-            color: #d1d9e1;
-            font-weight: 400;
-            line-height: 1.6;
-        }
-
-        .achievements li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: #58a6ff;
-            font-weight: bold;
-        }
-
-        .achievements li strong {
-            color: #7ee787;
-            font-weight: 600;
-        }
-
         section {
-            padding: 100px 0;
+            padding: 120px 0;
         }
     </style>
 </head>
@@ -147,6 +148,7 @@
             <div class="logo">SIA</div>
             <ul>
                 <li><a href="#about">About</a></li>
+                <li><a href="#interests">Interests</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -155,6 +157,7 @@
 
 
     <section id="hero">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             
             <h1>End-to-End <br><span class="highlight">AI Developer</span></h1>
